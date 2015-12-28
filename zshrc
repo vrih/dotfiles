@@ -29,7 +29,6 @@ compinit
 #------------------------------
 # Keybindings
 #------------------------------
-bindkey -v
 typeset -g -A key
 #bindkey '\e[3~' delete-char
 bindkey '\e[1~' beginning-of-line
