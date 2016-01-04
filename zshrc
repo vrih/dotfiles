@@ -60,7 +60,9 @@ alias ll="ls --color -lh"
 alias d="du -h --max-depth=1 ."
 alias spm="sudo pacman"
 alias spmc="sudo pacman-color"
-
+alias gs="git status"
+alias pull="git pull"
+alias push="git push"
 
 #------------------------------
 # Window title
