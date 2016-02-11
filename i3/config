@@ -124,6 +124,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace 10
 
+#bindsym $mod+] [urgent=latest] focus
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -162,7 +164,8 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%; pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 1 -5%; pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 1 toggle; pkill -RTMIN+10 i3blocks"
-bindsym Shift+XF86AudioMute exec --no-startup-id ~/dotfiles/system_scripts/active_port.sh
+bindsym $mod+XF86AudioMute exec --no-startup-id "pactl set-source-mute 1 toggle; pkill -RTMIN+10 i3blocks"
+bindsym Shift+XF86AudioMute exec --no-startup-id "~/dotfiles/system_scripts/active_port.sh; pkill -RTMIN+10 i3blocks"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness

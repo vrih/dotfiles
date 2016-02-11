@@ -13,7 +13,4 @@ else
 	pactl set-sink-port 1 analog-output-headphones > /dev/null
 fi
 
-# send signal to i3blocks
-pkill -RTMIN+11 i3blocks
-
 exit 0
