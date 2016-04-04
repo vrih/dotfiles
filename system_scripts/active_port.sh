@@ -7,10 +7,10 @@ echo $ACTIVE_SINK
 
 if [ "$ACTIVE_SINK" = "<analog-output-headphones>" ]; then
 	echo "[*] Enabling all analog output on $DEVICE."
-	pactl set-sink-port 1 analog-output-speaker > /dev/null
+	pactl set-sink-port 0 analog-output-speaker > /dev/null
 else
 	echo "[*] Enabling headphones only on $DEVICE."
-	pactl set-sink-port 1 analog-output-headphones > /dev/null
+	pactl set-sink-port 0 analog-output-headphones > /dev/null
 fi
 
 exit 0

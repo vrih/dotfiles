@@ -161,10 +161,10 @@ bindsym $mod+r mode "resize"
 
 # mod keys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%; pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 1 -5%; pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 1 toggle; pkill -RTMIN+10 i3blocks"
-bindsym $mod+XF86AudioMute exec --no-startup-id "pactl set-source-mute 1 toggle; pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pkill -RTMIN+10 i3blocks"
+bindsym $mod+XF86AudioMute exec --no-startup-id "pactl set-source-mute 0xrr toggle; pkill -RTMIN+10 i3blocks"
 bindsym Shift+XF86AudioMute exec --no-startup-id "~/dotfiles/system_scripts/active_port.sh; pkill -RTMIN+10 i3blocks"
 
 # Sreen brightness controls
