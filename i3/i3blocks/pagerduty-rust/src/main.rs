@@ -10,9 +10,12 @@ extern crate rustc_serialize;
 use rustc_serialize::json;
 
 use hyper::Client;
-use hyper::header::Headers;
+use hyper::header::{Headers, Accept, qitem};
+use hyper::mime::{Mime, TopLevel, SubLevel, Attr, Value};
+
 header! { (Token, "Authorization") => [String]}
 
+const URL_ROOT: &'static str = "https://api.pagerduty.com/";
 
 fn make_call(url_path: String) -> Result<String, Box<Error+Send+Sync>>{
     let client = Client::new();
@@ -20,6 +23,10 @@ fn make_call(url_path: String) -> Result<String, Box<Error+Send+Sync>>{
     let mut auth_head = Headers::new();
 
     auth_head.set(Token(TOKEN.to_owned()));
+    auth_head.set(Accept(vec![qitem(Mime(TopLevel::Application,
+                                         SubLevel::Ext("vnd.pagerduty+json".to_owned()),
+                                         vec![(Attr::Ext("version".to_owned()),
+                                               Value::Ext("2".to_owned()))]))]));
 
     let url = URL_ROOT.to_owned() + &url_path;
 
@@ -41,7 +48,7 @@ fn make_call(url_path: String) -> Result<String, Box<Error+Send+Sync>>{
 fn incidents(){
     let body: String;
     
-    match make_call(String::from("incidents?status=triggered,acknowledged")){
+    match make_call(String::from("incidents?statuses%5B%5D=triggered&statuses%5B%5D=acknowledged")){
         Ok(bod) => body = bod,
         Err(err) => {println!("{}", err);
                      process::exit(1)}
@@ -107,8 +114,8 @@ fn call_loop(){
 
 fn oncall(){
     let body: String;
-    
-    match make_call(String::from("users/on_call")){
+    // TODO: change endpoint
+    match make_call(String::from("oncalls?time_zone=UTC&user_ids%5B%5D=PYHMPK3&escalation_policy_ids%5B%5D=P6OGX5C&schedule_ids%5B%5D=PQJ4RJ7")){
         Ok(bod) => body = bod,
         Err(err) => {println!("{}", err);
                      process::exit(1)}
@@ -118,29 +125,11 @@ fn oncall(){
     let request_json = json::Json::from_str(&body).unwrap();
     let response_obj = request_json.as_object().unwrap();
 
-    let users = response_obj.get("users").unwrap();
-    let users_array = users.as_array().unwrap();
+    let oncalls = response_obj.get("oncalls").unwrap();
+    let oncalls_array = oncalls.as_array().unwrap();
 
-    let target_user = users_array.iter().filter(|x| x.as_object().unwrap()
-                                                .get("id").unwrap()
-                                                .as_string().unwrap() == "PYHMPK3").collect::<Vec<_>>();
-
-    for user in &target_user{
-        let calls = user.as_object().unwrap()
-            .get("on_call").unwrap()
-            .as_array().unwrap();
-        for call in calls.iter(){
-            let call_obj = call.as_object().unwrap();
-            if call_obj.get("level").unwrap().as_i64().unwrap() == 1{
-                let escalation_policy = call_obj.get("escalation_policy").unwrap()
-                    .as_object().unwrap()
-                    .get("id").unwrap()
-                    .as_string().unwrap();
-                if escalation_policy == "P6OGX5C"{
-                    call_loop();
-                }
-            }
-        }
+    if oncalls_array.len() > 0{
+        call_loop();
     }
 }
 
