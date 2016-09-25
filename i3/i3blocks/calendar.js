@@ -98,8 +98,8 @@ function storeToken(token) {
 
 
 function date_format(d1, nowa){
-    if(nowa.getUTCDate() == d1.getUTCDate){
-        return moment(d1).format("h-m");
+    if(nowa.getUTCDate() == d1.getUTCDate()){
+        return moment(d1).format("h:mm");
     }
     return "".concat("+",
                      Math.floor(d1.getTime() / 86400000) - Math.floor(nowa.getTime() / 86400000)
@@ -152,23 +152,28 @@ function listEvents(auth) {
             var end = event.end.dateTime || event.end.date;
             var end_date = new Date(end);
             if (start_date < nowa && end_date > nowa){
-                current_event.push("".concat(start_date.toISOString(), " ", end_date.toISOString(), " ", event.summary));
+                current_event.push([date_format(start_date, nowa),
+                                    duration(start_date, end_date), event.summary].join(" "));
             }
 
             if (start_date > nowa){
-                if (!next_event_start || start_date == next_event_start){
-                    next_event.push(date_format(start_date, nowa),
-                                    duration(start_date, end_date), event.summary);
+                if (!next_event_start || start_date.getTime() == next_event_start.getTime()){
+                    next_event.push([date_format(start_date, nowa),
+                                     duration(start_date, end_date), event.summary].join(" "));
                     next_event_start = start_date;
                 }
             }
         }
 
         if(current_event.length == 0){
-            console.log("  %s", current_event, next_event.join(" ") );
+            console.log(" %s", current_event, next_event.join(", ") );
         } else {
-            console.log("  %s |  %s", current_event, next_event.join(" ") );
+            console.log(" %s |  %s", current_event, next_event.join(", "));
         }
+
+        if (next_event_start.getTime() - (new Date()).getTime() < 600000){
+            process.exit(33);
+    }
     }
   });
 }

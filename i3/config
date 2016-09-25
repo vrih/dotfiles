@@ -30,7 +30,7 @@ font pango:noto sans 6,font awesome 6
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -54,6 +54,9 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+bindsym XF86Back focus left
+bindsym XF86Forward focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
@@ -165,8 +168,12 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/dotfiles/system_scripts/volume.sh up"
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/dotfiles/system_scripts/volume.sh down"
 bindsym XF86AudioMute exec --no-startup-id "~/dotfiles/system_scripts/volume.sh mute"
-bindsym $mod+XF86AudioMute exec --no-startup-id "pactl set-source-mute 0 toggle; pkill -RTMIN+10 i3blocks"
+bindsym $mod+XF86AudioMute exec --no-startup-id "pactl set-source-mute 1 toggle; pkill -RTMIN+10 i3blocks"
 bindsym Shift+XF86AudioMute exec --no-startup-id "~/dotfiles/system_scripts/active_port.sh; pkill -RTMIN+10 i3blocks"
+
+bindsym Shift+F11 exec --no-startup-id "~/dotfiles/system_scripts/touchpad-toggle.sh"
+
+
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -204,7 +211,7 @@ mode "$mode_system" {
 bindsym XF86PowerOff mode "$mode_system"
 
 
-exec exec compton -CGb
+exec exec compton -CGbi
 exec --no-startup-id i3-msg 'workspace $WS1; exec emacs;'
 exec --no-startup-id i3-msg 'workspace $WS2; exec slack'
 exec --no-startup-id i3-msg 'workspace $WS3; exec google-chrome-stable'
