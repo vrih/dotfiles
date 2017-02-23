@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OUTPUT_PORT=$(pacmd list-sinks | grep -B1 'alsa_output.platform-bdw-rt5677.analog-stereo' | grep -o 'index:.*' | awk '{ print $2 }' )
+OUTPUT_PORT=0
 
 if [ "$1" = "up" ]; then
     echo "volume up"
