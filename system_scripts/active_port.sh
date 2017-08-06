@@ -1,6 +1,7 @@
 #!/bin/sh
 
 OUTPUT_PORT=$(pacmd list-sinks | grep -B1 'alsa_output.pci'| grep -o 'index:.*' | awk '{ print $2 }' )
+USB_PORT=$(pacmd list-sinks | grep -B1 'alsa_output.usb' | grep -o 'index:.*' | awk '{print $2 }')
 DEVICE='alsa_output.pci-0000_00_14.2.analog-stereo'
 ACTIVE_SINK=$(pacmd list-sinks | grep 'active port' | grep 'analog' | awk '{ print $3 }' | head -n1)
 

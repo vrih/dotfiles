@@ -10,8 +10,8 @@ setopt HIST_IGNORE_DUPS
 # Variables
 
 export BROWSER="firefox"
-export EDITOR="emacs -wm"
-export TERM=xterm
+export EDITOR="emacsclient -c" 
+export TERM="xterm-color"
 export GOPATH=/home/daniel/GIT/
 export PATH=$PATH:/home/daniel/.gem/ruby/2.4.0/bin
 # Dircolors
@@ -129,10 +129,12 @@ setprompt() {
     eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
   fi
   # set the prompt
-  PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}%~${PR_CYAN}]${PR_USER_OP} '
+  PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}$(replacepath)${PR_CYAN}]${PR_USER_OP} '
   PS2=$'%_>'
   RPROMPT=$'${vcs_info_msg_0_}'
 }
 setprompt
 source $HOME/.zshenv
-source $HOME/.zshenv
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus

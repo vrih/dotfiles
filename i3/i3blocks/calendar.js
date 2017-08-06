@@ -23,6 +23,7 @@ fs.readFile('/home/daniel/GIT/dotfiles/i3/i3blocks/client_secret.json', function
         authorize(JSON.parse(content), listEvents);
     } catch (err) {
         console.log("");
+        return;
     }
 });
 
@@ -135,30 +136,30 @@ function listEvents(auth) {
     singleEvents: true,
     orderBy: 'startTime'
   }, function(err, response) {
-    if (err) {
-      console.log('The API returned an error: ' + err);
-      return;
-    }
-    var events = response.items;
-    if (events.length == 0) {
-      console.log('No upcoming events found.');
-    } else {
-        var current_event = [];
-        var next_event = [];
-        var next_event_start = null;
-
+      if (err) {
+          console.log('The API returned an error: ' + err);
+          return;
+      }
+      var events = response.items;
+      if (events.length == 0) {
+          console.log('No upcoming events found.');
+      } else {
+          var current_event = [];
+          var next_event = [];
+          var next_event_start = null;
+          
         var nowa = new Date();
-        
-        for (var i = 0; i < events.length; i++) {
-            var event = events[i];
-            var start = event.start.dateTime || event.start.date;
-            var start_date = new Date(start);
-            var end = event.end.dateTime || event.end.date;
-            var end_date = new Date(end);
-            if (start_date < nowa && end_date > nowa){
-                current_event.push([date_format(start_date, nowa),
-                                    duration(start_date, end_date), event.summary].join(" "));
-            }
+          
+          for (var i = 0; i < events.length; i++) {
+              var event = events[i];
+              var start = event.start.dateTime || event.start.date;
+              var start_date = new Date(start);
+              var end = event.end.dateTime || event.end.date;
+              var end_date = new Date(end);
+              if (start_date < nowa && end_date > nowa){
+                  current_event.push([date_format(start_date, nowa),
+                                      duration(start_date, end_date), event.summary].join(" "));
+              }
 
             if (start_date > nowa){
                 if (!next_event_start || start_date.getTime() == next_event_start.getTime()){
