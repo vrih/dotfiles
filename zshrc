@@ -99,9 +99,15 @@ autoload -U colors zsh/terminfo
 colors
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' enable git 
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[green]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
+
+
+function replacepath() {
+    echo $(pwd | sed -e "s,$HOME, ," | sed -e "s,GIT, ," | sed -e "s,Dropbox, ,")
+
+}
 
 setprompt() {
   # load some modules

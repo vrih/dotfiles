@@ -24,6 +24,8 @@ dropbox &
 
 redshift-gtk &
 
+feh --bg-center ~/coffee_cooking_vapor_113901_1920x1080.jpg
+
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 

@@ -199,8 +199,7 @@ bar {
     }                   
 }
 
-set $Locker i3lock -i screenlock.png -e -u && sleep 1
-
+set $Locker "~/GIT/dotfiles/system_scripts/xlock.sh"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
