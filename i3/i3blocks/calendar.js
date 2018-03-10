@@ -4,6 +4,8 @@ var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 
+var exec = require('child_process').exec;
+//function puts(error, stdout, stderr) { console.log(stdout) }
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/calendar-nodejs-quickstart.json
 var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
@@ -119,6 +121,34 @@ function duration(d1, d2){
     return "(" + Math.floor(time_in_mins / 60).toString() + "h" + (time_in_mins % 60).toString() + "m)";
 }
 
+function parse_location(loc){
+    if (loc == undefined){
+        return undefined;
+    }
+    
+    if(loc.includes("Salmon")){
+        return "三文鱼";
+    }
+
+    if(loc.includes("Pride")){
+        return "獅";
+    }
+    
+    if(loc.includes("Tiger")){
+        return "虎";
+    }
+
+    if(loc.includes("Goose")){
+        return "鵝";
+    }
+
+    if(loc.includes("LON - Boardroom")){
+        return "會議室";
+    }
+
+    return undefined;
+}
+
 /**
  * Lists the next 10 events on the user's primary calendar.
  *
@@ -153,25 +183,28 @@ function listEvents(auth) {
           for (var i = 0; i < events.length; i++) {
               var event = events[i];
               var start = event.start.dateTime || event.start.date;
+              var location = parse_location(event.location);
               var start_date = new Date(start);
               var end = event.end.dateTime || event.end.date;
               var end_date = new Date(end);
+              var summary = event.summary.length > 15 ? event.summary.substring(0, 15) + "…" : event.summary;
               if (start_date < nowa && end_date > nowa){
                   current_event.push([date_format(start_date, nowa),
-                                      duration(start_date, end_date), event.summary].join(" "));
+                                      duration(start_date, end_date), summary, location].join(" ").trim());
               }
 
             if (start_date > nowa){
                 if (!next_event_start || start_date.getTime() == next_event_start.getTime()){
                     next_event.push([date_format(start_date, nowa),
-                                     duration(start_date, end_date), event.summary].join(" "));
+                                     duration(start_date, end_date), summary, location].join(" ").trim());
                     next_event_start = start_date;
                 }
             }
         }
 
+          
         if(current_event.length == 0){
-            console.log(" %s", current_event, next_event.join(", ") );
+            console.log(" %s", next_event.join(", ") );
         } else {
             console.log(" %s |  %s", current_event, next_event.join(", "));
         }

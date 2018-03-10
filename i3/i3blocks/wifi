@@ -31,16 +31,15 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 
 #------------------------------------------------------------------------
 
-echo "${QUALITY}%" # full text
-echo $QUALITY% # short text
-
 # color
 if [[ $QUALITY -ge 80 ]]; then
-    echo "#00FF00"
+    COLOR="#74cc78"
 elif [[ $QUALITY -lt 80 ]]; then
-    echo "#FFF600"
+    COLOR="#f1f78a"
 elif [[ $QUALITY -lt 60 ]]; then
-    echo "#FFAE00"
+    COLOR="#f7c28a"
 elif [[ $QUALITY -lt 40 ]]; then
-    echo "#FF0000"
+    COLOR="#f79191"
 fi
+
+echo "<span foreground='$COLOR' font_desc='Material Icons 12' rise='-15000'></span>"

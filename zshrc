@@ -63,10 +63,18 @@ alias ls="ls --color -F"
 alias ll="ls --color -lh"
 alias d="du -h --max-depth=1 ."
 alias spm="sudo pacman"
-alias spmc="sudo pacman-color"
 alias gs="git status"
 alias pull="git pull"
 alias push="git push"
+alias pagerduty="coffee ~/Dropbox/work_scripts/vrih-pagerduty/src/vrih-pagerduty.coffee"
+alias gcal="gcalcli agenda --calendar daniel.bowtell@infectiousmedia.com"
+alias gcaldan="gcalcli agenda --calendar dan@infectiousmedia.com"
+alias desktop-mon="xrandr --output DP1 --same-as eDP1 --auto --primary && xrandr --output eDP1 --off"
+alias laptop-mon="xrandr --output eDP1 --auto --primary && xrandr --output DP1 --off"
+alias t="python ~/apps/todoist-cli/todoist_cli.py"
+
+alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
+alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 
 #------------------------------
 # Window title

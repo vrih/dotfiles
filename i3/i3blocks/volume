@@ -43,8 +43,6 @@ function format {
     if [[ $1 == *"[off]"* ]]
     then
         echo "";
-        echo "MUTE";
-        echo "#FF0000";
         exit 0;
     else
         vol=$(echo $1 | grep -o '\[[0-9]*%\]' | tr -d '[]%' | tr '\n' ' ' |awk  '{print $1;}')

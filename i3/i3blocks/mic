@@ -34,14 +34,10 @@ amixer -c 1 sget 'Mic' | tail -n 1 | grep -q "\[on\]" && [[ $? -eq 0 ]] && state
 case $state in
     0)
     echo "";
-    #echo "  "
-    echo \#005FD7;  # Soft blue
-    #echo \#00FF00;  # Bright green
     exit 0;
     ;;
     1)
     echo "  ";
-    #echo "      ";
     exit 33;
     ;;
     2)
@@ -50,7 +46,6 @@ case $state in
     ;;
     3)
     echo "  ";
-    #echo "      ";
     exit 33;
     ;;
 esac
