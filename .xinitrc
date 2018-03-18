@@ -6,7 +6,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-#compton -b -c 
+compton -b -c 
 
 xrdb ~/.Xresources
 
