@@ -115,7 +115,6 @@ fn make_call<F>(url_path: &str, mut f: F) -> Result<(), Box<Error+Send+Sync>>
     req.headers_mut().set(Accept(vec![qitem("application/vnd.pagerduty+json;version=2".parse().unwrap())]));
     
     let a = client.request(req).and_then(|res| {
-        println!("{:?}", res.status());
         // if it's not a 200 then error out
        // match res.status(){
         //    hyper::StatusCode::Ok => {
@@ -167,8 +166,6 @@ fn main(){
                 .arg("coffee /home/daniel/Dropbox/work_scripts/vrih-pagerduty/src/vrih-pagerduty.coffee")
                 .spawn()
                 .unwrap_or_else(|e| { panic!("failed to execute process: {}", e)});
-
-//            let _ = process::Command::new("xdg-open").arg("https://infectiousmedia.pagerduty.com/incidents").output().unwrap_or_else(|e| { panic!("failed to execute process: {}", e)} );
         }
     }
 

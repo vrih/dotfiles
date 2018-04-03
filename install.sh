@@ -2,7 +2,7 @@
 
 # #
 sudo apt-get install i3 i3blocks emacs25 fonts-font-awesome fonts-emojione ttf-mscorefonts-installer \
-     keepassx git firefox compton
+     keepassx git firefox compton stow
 
 
 ln -s .xinitrc ~/.xinitrc
@@ -34,3 +34,7 @@ echo '\n  "font_face": "Source Code Pro",'
 echo '  "font_size": 10'
 
 echo "\n* Finished :)\n"
+
+
+stow shell
+stow termite

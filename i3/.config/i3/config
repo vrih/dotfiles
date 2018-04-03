@@ -170,13 +170,13 @@ bindsym $mod+r mode "resize"
 
 # mod keys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id "~/GIT/dotfiles/system_scripts/volume.sh up"
-bindsym XF86AudioLowerVolume exec --no-startup-id "~/GIT/dotfiles/system_scripts/volume.sh down"
-bindsym XF86AudioMute exec --no-startup-id "~/GIT/dotfiles/system_scripts/volume.sh mute"
-bindsym $mod+XF86MonBrightnessUp exec --no-startup-id "~/GIT/dotfiles/system_scripts/mute.sh"
-bindsym Shift+XF86AudioMute exec --no-startup-id "~/GIT/dotfiles/system_scripts/active_port.sh; pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "~/dotfiles/system_scripts/volume.sh up"
+bindsym XF86AudioLowerVolume exec --no-startup-id "~/dotfiles/system_scripts/volume.sh down"
+bindsym XF86AudioMute exec --no-startup-id "~/dotfiles/system_scripts/volume.sh mute"
+bindsym $mod+XF86MonBrightnessUp exec --no-startup-id "~/dotfiles/system_scripts/mute.sh"
+bindsym Shift+XF86AudioMute exec --no-startup-id "~/dotfiles/system_scripts/active_port.sh; pkill -RTMIN+10 i3blocks"
 
-bindsym Shift+F11 exec --no-startup-id "~/GIT/dotfiles/system_scripts/touchpad-toggle.sh"
+bindsym Shift+F11 exec --no-startup-id "~/dotfiles/system_scripts/touchpad-toggle.sh"
 
 
 
@@ -194,7 +194,7 @@ bar {
     strip_workspace_numbers true
     font pango:noto sans 9, material icons 9, font awesome 9
     tray_output primary  
-    status_command i3blocks -c ~/GIT/dotfiles/i3/.i3blocks.conf
+    status_command i3blocks -c ~/.config/i3/.i3blocks.conf
     colors {
        background #293c56
        inactive_workspace #40597a #646970 #40597a

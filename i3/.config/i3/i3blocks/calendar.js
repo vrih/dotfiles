@@ -21,6 +21,9 @@ fs.readFile('/home/daniel/GIT/dotfiles/i3/i3blocks/client_secret.json', function
   }
   // Authorize a client with the loaded credentials, then call the
     // Google Calendar API.
+    if(process.env.BLOCK_BUTTON){
+        exec("termite --hold -e \"gcalcli agenda --calendar daniel.bowtell@infectiousmedia.com\"");
+    } 
     try{
         authorize(JSON.parse(content), listEvents);
     } catch (err) {
