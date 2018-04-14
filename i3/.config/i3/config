@@ -224,3 +224,4 @@ exec exec compton -CGbi
 exec --no-startup-id i3-msg 'workspace $WS1; exec emacs;'
 exec --no-startup-id i3-msg 'workspace $WS2; exec slack'
 exec --no-startup-id i3-msg 'workspace $WS3; exec google-chrome-stable'
+exec --no-startup-id nm-applet --sm-disable
