@@ -77,7 +77,7 @@ alias gcaldan="gcalcli agenda --calendar dan@infectiousmedia.com"
 alias desktop-mon="xrandr --output DP1 --same-as eDP1 --auto --primary && xrandr --output eDP1 --off"
 alias laptop-mon="xrandr --output eDP1 --auto --primary && xrandr --output DP1 --off"
 alias t="python ~/apps/todoist-cli/todoist_cli.py"
-
+alias dimmode="setxkbmap -layout gb"
 alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 
