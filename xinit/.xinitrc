@@ -24,7 +24,7 @@ dropbox &
 
 redshift-gtk &
 
-feh --bg-center ~/coffee_cooking_vapor_113901_1920x1080.jpg
+feh --bg-center ~/Dropbox/wallpaper.jpg
 
 export SSH_AUTH_SOCK
 exec i3
