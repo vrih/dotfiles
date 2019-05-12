@@ -14,8 +14,6 @@ xrdb ~/.Xresources
 setxkbmap -layout gb
 ibus-daemon &
 
-pulseaudio --start
-
 xmodmap ~/.Xmodmap
 
 xautolock -time 5 -locker i3lock -notify 30 -i /home/daniel/wallpaper.png -e &

@@ -64,8 +64,8 @@ bindkey "\eOF" end-of-line
 # Alias
 #------
 
-alias ls="ls --color -F"
-alias ll="ls --color -lh"
+alias ls="ls --color -F -lth"
+alias ll="\ls --color -lh"
 alias d="du -h --max-depth=1 ."
 alias spm="sudo pacman"
 alias gs="git status"
@@ -157,3 +157,6 @@ source $HOME/.zshenv
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+export LESSOPEN="| pygmentize %s"
+export LESS=' -R '
