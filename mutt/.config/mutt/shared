@@ -1,0 +1,20 @@
+source ~/.config/mutt/colors
+
+set imap_check_subscribed
+set header_cache = "~/.cache/mutt"
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set sidebar_short_path
+set sidebar_delim_chars="/"    
+set sidebar_folder_indent
+set sidebar_indent_string="  "
+
+
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+
+set realname='Daniel Bowman'
+
+set use_from=yes
