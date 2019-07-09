@@ -1,8 +1,8 @@
 source ~/.config/mutt/personal
+source ~/.config/mutt/shared
 set spoolfile=+INBOX
 set postponed=+Drafts
 set record=+Sent
 set ssl_starttls=yes
 macro index,pager y "<save-message>+Archive<enter><enter>" "Archive"
 
-source ~/.config/mutt/shared
