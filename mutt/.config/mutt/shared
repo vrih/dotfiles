@@ -1,7 +1,9 @@
 source ~/.config/mutt/colors
 
+mailboxes "+Inbox"
 set imap_check_subscribed
-set header_cache = "~/.cache/mutt"
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir=~/.cache/mutt/messages
 set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
@@ -10,7 +12,6 @@ set sidebar_delim_chars="/"
 set sidebar_folder_indent
 set sidebar_indent_string="  "
 set editor=vim
-sidebar_whitelist "=INBOX"
 
 set delete=yes
 set smart_wrap
@@ -28,12 +29,10 @@ bind index,pager \Cj sidebar-next
 bind index,pager \Cl sidebar-open
 #bind index,pager \Ct sidebar-toggle
 
-
-#pip install muttdown
-
 macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=utf-8\n"
 set wait_key=no
 
 set text_flowed
 set imap_idle
 set beep_new
+unmailboxes +Archive
