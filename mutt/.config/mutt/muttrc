@@ -1,9 +1,14 @@
 source ~/.config/mutt/personal
 source ~/.config/mutt/shared
-set spoolfile=+INBOX
+set spoolfile="="
 set postponed=+Drafts
 set record=+Sent
 set ssl_starttls=yes
 macro index,pager y "<save-message>+Archive<enter><enter>" "Archive"
-
-
+set mailcap_path 	= ~/.config/mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
+set pager_context=3
+set pager_stop=yes
