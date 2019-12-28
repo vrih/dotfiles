@@ -1,8 +1,8 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # Ignore duplicate history lines
 setopt HIST_IGNORE_DUPS
@@ -80,6 +80,7 @@ alias t="python ~/apps/todoist-cli/todoist_cli.py"
 alias dimmode="setxkbmap -layout gb"
 alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
+alias gvim="nvim-qt"
 
 #------------------------------
 # Window title

@@ -172,8 +172,8 @@ bindsym Shift+F11 exec --no-startup-id "~/dotfiles/system_scripts/touchpad-toggl
 
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 
 bindsym $mod+p exec --no-startup-id "xrandr -display :0 --output DP1 --off && xrandr -display :0 --output eDP1 --auto"
@@ -212,6 +212,5 @@ bindsym XF86PowerOff mode "$mode_system"
 
 exec exec compton -CGbi
 exec --no-startup-id feh --bg-center ~/SynologyDrive/wallpaper.jpg
-exec --no-startup-id i3-msg 'workspace 1; exec emacs;'
 exec --no-startup-id i3-msg 'workspace 3; exec firefox'
 exec --no-startup-id nm-applet --sm-disable

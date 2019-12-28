@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read -r max < /sys/class/leds/chromeos\:\:kbd_backlight/max_brightness
-((step = max / 10))
+((step = max / 100))
 file=/sys/class/leds/chromeos\:\:kbd_backlight/brightness
 
 case "$1" in
