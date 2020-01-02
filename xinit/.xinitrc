@@ -11,7 +11,6 @@ compton -b -c
 xrdb ~/.Xresources
 
 setxkbmap -layout gb
-ibus-daemon &
 
 start-pulseaudio-x11
 
@@ -20,9 +19,6 @@ xmodmap ~/.Xmodmap
 xautolock -time 5 -locker i3lock -notify 30 -i /home/daniel/wallpaper.png -e &
 
 xrandr --output eDP1 --primary
-dropbox &
-
-redshift-gtk &
 
 feh --bg-center ~/Dropbox/wallpaper.jpg
 
