@@ -1,9 +1,0 @@
-source ~/.config/mutt/shared
-source ~/.config/mutt/work-priv
-set spoolfile = +INBOX
-set postponed = +Drafts
-unset record
-
-# Connection options
-set ssl_force_tls = yes
-
