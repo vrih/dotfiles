@@ -1,7 +1,10 @@
 source ~/.config/mutt/colors
 
 mailboxes "+Inbox"
+attachments +I */.*
 set imap_check_subscribed
+set imap_idle
+set implicit_autoview
 set header_cache = "~/.cache/mutt/headers"
 set message_cachedir=~/.cache/mutt/messages
 set sidebar_visible
@@ -12,6 +15,11 @@ set sidebar_delim_chars="/"
 set sidebar_folder_indent
 set sidebar_indent_string="  "
 set editor=nvim
+set change_folder_next
+set pager_stop
+set wrap=78
+
+auto_view text/html
 
 set delete=yes
 set smart_wrap
@@ -34,4 +42,5 @@ set wait_key=no
 set text_flowed
 set imap_idle
 set beep_new
-unmailboxes +Archive
+
+ignore X-Mailer
