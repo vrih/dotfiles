@@ -35,3 +35,4 @@ set text_flowed
 set imap_idle
 set beep_new
 unmailboxes +Archive
+set wrap=80
