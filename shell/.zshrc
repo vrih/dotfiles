@@ -9,7 +9,7 @@ setopt HIST_IGNORE_DUPS
 
 # Variables
 
-export EDITOR="nvim"
+export EDITOR="nvim" 
 export TERM="xterm-color"
 export GOPATH=/home/daniel/GIT/
 export PATH=$PATH:/home/daniel/.gem/ruby/2.4.0/bin
@@ -78,6 +78,8 @@ alias dimmode="setxkbmap -layout gb"
 alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 alias gvim="nvim-qt"
+
+source ~/.aliases
 
 #------------------------------
 # Window title
@@ -157,3 +159,5 @@ export QT_IM_MODULE=ibus
 
 export LESSOPEN="| pygmentize %s"
 export LESS=' -R '
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
