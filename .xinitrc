@@ -6,12 +6,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-
 compton -b -c 
 
 xrdb ~/.Xresources
 
-setxkbmap -layout gb
+setxkbmap us altgr-intl -option caps:compose
 ibus-daemon &
 
 xmodmap ~/.Xmodmap
@@ -19,7 +18,6 @@ xmodmap ~/.Xmodmap
 xautolock -time 5 -locker i3lock -notify 30 -i /home/daniel/wallpaper.png -e &
 
 xrandr --output eDP1 --primary
-dropbox &
 
 redshift-gtk &
 
