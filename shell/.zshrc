@@ -9,7 +9,7 @@ setopt HIST_IGNORE_DUPS
 
 # Variables
 
-export EDITOR="emacsclient -c" 
+export EDITOR="nvim"
 export TERM="xterm-color"
 export GOPATH=/home/daniel/GIT/
 export PATH=$PATH:/home/daniel/.gem/ruby/2.4.0/bin
@@ -29,11 +29,8 @@ bindkey -e
 autoload -Uz compinit
 compinit
 
-
 # Prompt
 #PROMPT=
-
-
 
 #------------------------------
 # Keybindings
@@ -116,7 +113,6 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
-
 
 function replacepath() {
     echo $(pwd | sed -e "s,$HOME, ," | sed -e "s,GIT, ," | sed -e "s,Dropbox, ,")
