@@ -9,7 +9,7 @@ setopt HIST_IGNORE_DUPS
 
 # Variables
 
-export EDITOR="emacsclient -c" 
+export EDITOR="nvim" 
 export TERM="xterm-color"
 export GOPATH=/home/daniel/GIT/
 export PATH=$PATH:/home/daniel/.gem/ruby/2.4.0/bin
@@ -29,11 +29,8 @@ bindkey -e
 autoload -Uz compinit
 compinit
 
-
 # Prompt
 #PROMPT=
-
-
 
 #------------------------------
 # Keybindings
@@ -82,6 +79,8 @@ alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 alias gvim="nvim-qt"
 
+source ~/.aliases
+
 #------------------------------
 # Window title
 #------------------------------
@@ -116,7 +115,6 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
-
 
 function replacepath() {
     echo $(pwd | sed -e "s,$HOME, ," | sed -e "s,GIT, ," | sed -e "s,Dropbox, ,")
@@ -161,3 +159,5 @@ export QT_IM_MODULE=ibus
 
 export LESSOPEN="| pygmentize %s"
 export LESS=' -R '
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
