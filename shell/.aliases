@@ -1,0 +1,44 @@
+alias be='bundle exec'
+alias logs='kubectl logs'
+alias pods='kubectl get pods'
+alias t='task'
+alias ytu='yarn test:unit --no-cache'
+alias yte='yarn test:e2e'
+alias yteh='yarn test:e2e --headless'
+alias ys='yarn serve'
+
+# git aliases
+alias gs='git status'
+alias gl='git log'
+alias glp='git log production..master --pretty=oneline --abbrev-commit'
+alias ga='git add'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gr='git rebase -i'
+alias gpf='git push --force-with-lease'
+alias gp='git push'
+alias gdm='git difftool master...'
+alias gcm='git checkout master'
+# https://railsware.com/blog/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/
+alias gstale='for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r'
+alias gunmerged='for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r'
+
+# kubernetes shortcuts
+alias k='kubectl'
+alias kj='kubectl get jobs'
+alias kc='kubectl get cronjobs'
+alias ks='kubectl get services'
+alias ka='kubectl apply -f'
+alias kns='kubectl config set-context --current --namespace'
+
+# terraform
+alias tf='terraform'
+alias tfp='terraform plan -out=plan'
+alias tfi='terraform init'
+alias tfa='terraform apply plan && rm plan'
+alias tfv='terraform validate'
+
+alias labhash='git rev-parse --short=8 HEAD'
+
+alias gvim=nvim-qt

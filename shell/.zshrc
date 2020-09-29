@@ -17,7 +17,7 @@ export RBM_BASE=/home/daniel/Dropbox/bookmarks
 export BROWSER="firefox"
 
 # Tokens
-source <(gpg -q --decrypt /home/daniel/.passwords.gpg)
+#source <(gpg -q --decrypt /home/daniel/.passwords.gpg)
 
 # Dircolors
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:'
@@ -68,9 +68,6 @@ alias spm="sudo pacman"
 alias gs="git status"
 alias pull="git pull"
 alias push="git push"
-alias pagerduty="coffee ~/Dropbox/work_scripts/vrih-pagerduty/src/vrih-pagerduty.coffee"
-alias gcal="gcalcli agenda --calendar daniel.bowtell@infectiousmedia.com"
-alias gcaldan="gcalcli agenda --calendar dan@infectiousmedia.com"
 alias desktop-mon="xrandr --output DP1 --same-as eDP1 --auto --primary && xrandr --output eDP1 --off"
 alias laptop-mon="xrandr --output eDP1 --auto --primary && xrandr --output DP1 --off"
 alias t="python ~/apps/todoist-cli/todoist_cli.py"
@@ -79,7 +76,8 @@ alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 alias gvim="nvim-qt"
 
-source ~/.aliases
+[ -f $HOME/.aliases ] && source $HOME/.aliases
+[ -f $HOME/.local_aliases ] && source $HOME/.local_aliases
 
 #------------------------------
 # Window title
@@ -152,7 +150,8 @@ setprompt() {
   RPROMPT=$'${vcs_info_msg_0_}'
 }
 setprompt
-source $HOME/.zshenv
+
+[ -f $HOME/.zshenv ] && source $HOME/.zshenv
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
