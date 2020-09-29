@@ -152,6 +152,7 @@ setprompt() {
 setprompt
 
 [ -f $HOME/.zshenv ] && source $HOME/.zshenv
+[ -f $HOME/.local_zshrc ] && source $HOME/.local_zshrc
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
