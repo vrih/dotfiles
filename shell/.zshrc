@@ -12,8 +12,7 @@ setopt HIST_IGNORE_DUPS
 export EDITOR="nvim" 
 export TERM="xterm-color"
 export GOPATH=/home/daniel/GIT/
-export PATH=$PATH:/home/daniel/.gem/ruby/2.4.0/bin
-export RBM_BASE=/home/daniel/Dropbox/bookmarks
+export PATH=$PATH:$HOME/go/bin
 export BROWSER="firefox"
 
 # Tokens
@@ -158,6 +157,6 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 export LESSOPEN="| pygmentize %s"
-export LESS=' -R '
+export LESS=' -R --no-init --quit-if-one-screen'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
