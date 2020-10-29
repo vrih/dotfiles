@@ -11,7 +11,7 @@ setopt HIST_IGNORE_DUPS
 
 export EDITOR="nvim" 
 export TERM="xterm-color"
-export GOPATH=/home/daniel/GIT/
+export GOPATH=$HOME/go/
 export PATH=$PATH:$HOME/go/bin
 export BROWSER="firefox"
 
@@ -27,9 +27,6 @@ bindkey -e
 # The following lines were added by compinstall
 autoload -Uz compinit
 compinit
-
-# Prompt
-#PROMPT=
 
 #------------------------------
 # Keybindings
@@ -114,7 +111,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
 
 function replacepath() {
-    echo $(pwd | sed -e "s,$HOME, ," | sed -e "s,GIT, ," | sed -e "s,Dropbox, ,")
+    echo $(pwd | sed -e "s,$HOME,," | sed -e "s,GIT, ,")
 
 }
 
@@ -128,15 +125,6 @@ setprompt() {
   done
   PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-  # Check the UID
-  if [[ $UID -ge 1000 ]]; then # normal user
-    eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
-  elif [[ $UID -eq 0 ]]; then # root
-    eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-  fi
-
   # Check if we are on SSH or not
   if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
     eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
@@ -144,7 +132,7 @@ setprompt() {
     eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
   fi
   # set the prompt
-  PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}$(replacepath)${PR_CYAN}]${PR_USER_OP} '
+  PS1=$'${PR_CYAN}${PR_HOST}${PR_CYAN}[${PR_BLUE}$(replacepath)${PR_CYAN}]$ ${PR_NO_COLOR}'
   PS2=$'%_>'
   RPROMPT=$'${vcs_info_msg_0_}'
 }
