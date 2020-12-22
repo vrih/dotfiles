@@ -5,7 +5,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # Ignore duplicate history lines
-setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
 
 # Variables
 
@@ -112,7 +112,6 @@ zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%r/%S%%{${fg[cya
 
 function replacepath() {
     echo $(pwd | sed -e "s,$HOME,," | sed -e "s,GIT, ,")
-
 }
 
 setprompt() {
