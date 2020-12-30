@@ -13,7 +13,7 @@ export EDITOR="nvim"
 export TERM="xterm-color"
 export GOPATH=$HOME/go/
 export PATH=$PATH:$HOME/go/bin
-export BROWSER="firefox"
+export BROWSER="vivaldi"
 
 # Tokens
 #source <(gpg -q --decrypt /home/daniel/.passwords.gpg)
