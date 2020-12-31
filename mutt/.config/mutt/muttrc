@@ -8,7 +8,6 @@ macro index,pager y "<save-message>+Archive<enter><enter>" "Archive"
 set mailcap_path 	= ~/.config/mutt/mailcap
 auto_view text/html
 alternative_order text/html text/enriched text/plain
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 set pager_context=3
 set pager_stop=yes

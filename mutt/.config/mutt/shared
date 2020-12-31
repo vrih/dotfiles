@@ -54,7 +54,8 @@ set ssl_starttls=yes
 macro index,pager y "<save-message>+Archive<enter><enter>" "Archive"
 set mailcap_path 	= ~/.mailcap
 auto_view text/html
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 set pager_context=3
 set pager_stop=yes
