@@ -43,3 +43,6 @@ alias labhash='git rev-parse --short=8 HEAD'
 
 alias gvim=nvim-qt
 alias tmux='tmux -2'
+
+# media
+alias mpva='mpv --no-audio-display --cache-pause-initial --prefetch-playlist'
