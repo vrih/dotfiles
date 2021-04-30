@@ -71,7 +71,19 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 ZSH_TMUX_AUTOSTART=true
-plugins=(git docker docker-compose bundler aws gpg-agent kubectl pass terraform tmux)
+plugins=(
+  git
+  docker
+  docker-compose
+  bundler
+  aws
+  gpg-agent
+  kubectl
+  pass
+  terraform
+  tmux
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,4 +144,5 @@ alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 alias gvim="nvim-qt"
 source ~/.aliases
 source ~/.local_aliases
+source ~/.local_zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

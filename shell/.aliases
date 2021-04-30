@@ -18,7 +18,7 @@ alias gcan='git commit --amend --no-edit'
 alias gr='git rebase -i'
 alias gpf='git push --force-with-lease'
 alias gp='git push'
-alias gdm='git difftool master...'
+alias gdm='git diff master... | $EDITOR'
 alias gcm='git checkout master'
 # https://railsware.com/blog/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/
 alias gstale='for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r'
@@ -46,3 +46,4 @@ alias tmux='tmux -2'
 
 # media
 alias mpva='mpv --no-audio-display --cache-pause-initial --prefetch-playlist'
+alias mpvp='mpv --no-audio-display --cache-pause-initial --prefetch-playlist --speed=1.46'
