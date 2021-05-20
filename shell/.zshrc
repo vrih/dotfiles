@@ -73,10 +73,10 @@ ZSH_THEME="robbyrussell"
 ZSH_TMUX_AUTOSTART=true
 
 fpath=(~/.config/zsh/completions $fpath)
-
+plugins=(aws)
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.config/zsh/plugins/aws.zsh
+#source $HOME/.config/zsh/plugins/aws.zsh
 source $HOME/.config/zsh/plugins/bundler.zsh
 source $HOME/.config/zsh/plugins/docker-compose.zsh
 source $HOME/.config/zsh/plugins/git.zsh
