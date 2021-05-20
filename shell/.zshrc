@@ -71,22 +71,21 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 ZSH_TMUX_AUTOSTART=true
-plugins=(
-  git
-  docker
-  docker-compose
-  bundler
-  aws
-  gpg-agent
-  kubectl
-  pass
-  terraform
-  tmux
-  zsh-autosuggestions
-)
+
+fpath=(~/.config/zsh/completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/.config/zsh/plugins/aws.zsh
+source $HOME/.config/zsh/plugins/bundler.zsh
+source $HOME/.config/zsh/plugins/docker-compose.zsh
+source $HOME/.config/zsh/plugins/git.zsh
+source $HOME/.config/zsh/plugins/gpg-agent.zsh
+source $HOME/.config/zsh/plugins/kubectl.zsh
+source $HOME/.config/zsh/plugins/pass.zsh
+source $HOME/.config/zsh/plugins/terraform.zsh
+source $HOME/.config/zsh/plugins/tmux.zsh
+source $HOME/.config/zsh/plugins/yarn.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
