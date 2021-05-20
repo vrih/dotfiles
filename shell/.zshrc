@@ -86,6 +86,9 @@ source $HOME/.config/zsh/plugins/pass.zsh
 source $HOME/.config/zsh/plugins/terraform.zsh
 source $HOME/.config/zsh/plugins/tmux.zsh
 source $HOME/.config/zsh/plugins/yarn.zsh
+
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
