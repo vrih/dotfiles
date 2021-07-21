@@ -82,6 +82,7 @@ source $HOME/.config/zsh/plugins/docker-compose.zsh
 source $HOME/.config/zsh/plugins/git.zsh
 source $HOME/.config/zsh/plugins/gpg-agent.zsh
 source $HOME/.config/zsh/plugins/installer.sh
+source $HOME/.config/zsh/plugins/jira.zsh
 source $HOME/.config/zsh/plugins/kubectl.zsh
 source $HOME/.config/zsh/plugins/pass.zsh
 source $HOME/.config/zsh/plugins/terraform.zsh
@@ -107,7 +108,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # Variables
 
 export EDITOR="nvim" 
-export TERM="xterm-color"
+export TERM="xterm-kitty"
 export GOPATH=$HOME/go/
 export PATH=$PATH:$HOME/go/bin
 export BROWSER="vivaldi"
