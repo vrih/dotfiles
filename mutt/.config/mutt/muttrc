@@ -1,6 +1,5 @@
 source ~/.config/mutt/personal
 source ~/.config/mutt/shared
-set spoolfile="="
 set postponed=+Drafts
 set record=+Sent
 set ssl_starttls=yes
