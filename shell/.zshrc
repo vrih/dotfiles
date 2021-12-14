@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/daniel/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -86,7 +86,7 @@ source $HOME/.config/zsh/plugins/jira.zsh
 source $HOME/.config/zsh/plugins/kubectl.zsh
 source $HOME/.config/zsh/plugins/pass.zsh
 source $HOME/.config/zsh/plugins/terraform.zsh
-source $HOME/.config/zsh/plugins/tmux.zsh
+#source $HOME/.config/zsh/plugins/tmux.zsh
 source $HOME/.config/zsh/plugins/yarn.zsh
 
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -108,10 +108,9 @@ setopt HIST_IGNORE_ALL_DUPS
 # Variables
 
 export EDITOR="nvim" 
-export TERM="xterm-kitty"
 export GOPATH=$HOME/go/
-export PATH=$PATH:$HOME/go/bin
-export BROWSER="vivaldi"
+export PATH=$PATH:$HOME/.local/bin
+export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -132,8 +131,8 @@ export BROWSER="vivaldi"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias ls="ls --color -F -lth"
-alias ll="\ls --color -lh"
+alias ls="ls -G -F -lth"
+alias ll="ls -G -lh"
 alias d="du -h --max-depth=1 ."
 alias spm="sudo pacman"
 alias gs="git status"
@@ -141,11 +140,8 @@ alias pull="git pull"
 alias push="git push"
 alias desktop-mon="xrandr --output DP1 --same-as eDP1 --auto --primary && xrandr --output eDP1 --off"
 alias laptop-mon="xrandr --output eDP1 --auto --primary && xrandr --output DP1 --off"
-alias t="python ~/apps/todoist-cli/todoist_cli.py"
-alias dimmode="setxkbmap -layout gb"
 alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
-alias gvim="nvim-qt"
 source ~/.aliases
 source ~/.local_aliases
 source ~/.local_zshrc
