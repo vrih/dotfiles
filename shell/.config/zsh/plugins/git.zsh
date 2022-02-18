@@ -303,7 +303,7 @@ alias gr='git rebase -i'
 alias gpf='git push --force-with-lease'
 alias gp='git push'
 alias gdm='git diff master... | $EDITOR'
-alias gcm='git checkout master'
+alias gcm='git checkout $(git_main_branch)'
 # https://railsware.com/blog/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/
 alias gstale='for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r'
 alias gunmerged='for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r'

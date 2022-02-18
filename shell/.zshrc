@@ -87,11 +87,13 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.config/zsh/plugins/bundler.zsh
 source $HOME/.config/zsh/plugins/docker-compose.zsh
 source $HOME/.config/zsh/plugins/git.zsh
+source $HOME/.config/zsh/plugins/github.zsh
 source $HOME/.config/zsh/plugins/gpg-agent.zsh
 source $HOME/.config/zsh/plugins/installer.sh
 source $HOME/.config/zsh/plugins/jira.zsh
 source $HOME/.config/zsh/plugins/kubectl.zsh
 source $HOME/.config/zsh/plugins/pass.zsh
+source $HOME/.config/zsh/plugins/you-should-use.zsh
 source $HOME/.config/zsh/plugins/terraform.zsh
 #source $HOME/.config/zsh/plugins/tmux.zsh
 source $HOME/.config/zsh/plugins/yarn.zsh
