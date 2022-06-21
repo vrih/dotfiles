@@ -171,6 +171,15 @@ function ggu() {
 }
 compdef _git ggu=git-checkout
 
+
+function delete_branches() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" | fzf --multi ) &&
+  git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+
 alias ggpur='ggu'
 alias ggpull='git pull origin "$(git_current_branch)"'
 alias ggpush='git push origin "$(git_current_branch)"'
@@ -299,6 +308,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
+alias gcanpf='git commit --ammend --no-edit && git push --force-with-lease'
 alias gr='git rebase -i'
 alias gpf='git push --force-with-lease'
 alias gp='git push'
