@@ -33,7 +33,7 @@ function work_in_progress() {
 function git_main_branch() {
   command git rev-parse --git-dir &>/dev/null || return
   local branch
-  for branch in main trunk; do
+  for branch in main trunk develop; do
     if command git show-ref -q --verify refs/heads/$branch; then
       echo $branch
       return
