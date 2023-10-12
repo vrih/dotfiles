@@ -116,7 +116,7 @@ setopt HIST_IGNORE_ALL_DUPS
 
 export EDITOR="nvim" 
 export GOPATH=$HOME/go/
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Preferred editor for local and remote sessions
@@ -153,6 +153,10 @@ source ~/.aliases
 source ~/.local_aliases
 source ~/.local_zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+### Expand aliases
+bindkey "^Xa" _expand_alias
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
