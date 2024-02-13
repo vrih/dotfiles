@@ -86,10 +86,10 @@ plugins=(
         docker-compose
         gh
         git
+        gradle
         jira
         poetry
         ripgrep
-        taskwarrior
         terraform
 )
 source $ZSH/oh-my-zsh.sh
@@ -114,7 +114,7 @@ setopt HIST_IGNORE_ALL_DUPS
 
 # Variables
 
-export EDITOR="nvim" 
+export EDITOR="nvim"
 export GOPATH=$HOME/go/
 export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -141,12 +141,9 @@ export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias ls="ls -G -F -lth"
 alias ll="ls -G -lh"
 alias d="du -h --max-depth=1 ."
-alias spm="sudo pacman"
 alias gs="git status"
 alias pull="git pull"
 alias push="git push"
-alias desktop-mon="xrandr --output DP1 --same-as eDP1 --auto --primary && xrandr --output eDP1 --off"
-alias laptop-mon="xrandr --output eDP1 --auto --primary && xrandr --output DP1 --off"
 alias radio4="mpv --really-quiet http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
 alias radiofip="mpv --really-quiet http://www.listenlive.eu/fr_fip128.m3u"
 source ~/.aliases
